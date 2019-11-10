@@ -108,7 +108,18 @@ def run(matrix, couples_array):
         l[i][next_node] = 1
         draw_arc_from_origin_to_dest(i, next_node, couples_array)
 
+    #special case if we have 9 nodes
+    if number_of_nodes == 9 :
+        skips = 2
+        for i in range(1,3):
+            current_node = i
+            next_node = get_next_node(current_node,skips,number_of_nodes)
+            draw_arc_from_origin_to_dest(current_node,next_node,couples_array)
 
+
+def get_style_for_writing():
+    style = ('Times Rew Romans', 15, 'bold')
+    return style
 
 
 def get_config_data():
@@ -157,7 +168,7 @@ def draw_nodes(number_of_nodes):
     small_step = 25
     # move forward a bit more
     turtle.forward(small_step)
-    style = ('Times Rew Romans', 30, 'bold')
+    style = get_style_for_writing()
     turtle.pendown()
     # Now we write the node labels
     turtle.write(str(node_labels[0]), font=style, align='center')
@@ -172,13 +183,13 @@ def draw_nodes(number_of_nodes):
         turtle.forward(RADIUS)
         # save this coordinate
         couples_array.append([turtle.xcor(), turtle.ycor()])
-        small_step = 75
+        small_step = 65
         n = number_of_nodes
         if float(i) >= 0.3 * n and float(i) <= 0.55 * n:
             small_step * 1.5
         # move forward a bit more
         turtle.forward(small_step)
-        style = ('Times Rew Romans', 30, 'bold')
+        style = get_style_for_writing()
         turtle.pendown()
         # Now we write the node labels
         turtle.write(str(node_labels[i]), font=style, align='center')
@@ -221,7 +232,7 @@ def draw_arc_from_origin_to_dest(current_node,next_node,couples_array):
     turtle.showturtle()
 
 def main():
-    number_of_nodes = 15
+    number_of_nodes = 9
     turtle.speed(1)# 1 is the slowest, 10 is faster, and 0 is the fastest
     n = number_of_nodes
     # We need a n by n matrix
