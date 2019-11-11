@@ -251,5 +251,4 @@ def main():
     print_array(matrix)
     tkinter.mainloop()  # to prevent turtle from closing
 
-
 main()
