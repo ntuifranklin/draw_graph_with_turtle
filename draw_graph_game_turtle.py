@@ -240,7 +240,7 @@ def draw_arc_from_origin_to_dest(current_node,next_node,couples_array):
 
 def main():
     #turtle.hideturtle()#We hide the turtle/little thing drawing
-    number_of_nodes = 999 # anything above 26 nodes will cause an error
+    number_of_nodes = 30 # anything above 26 nodes will cause an error
     turtle.speed(9)# 1 is the slowest, 10 is faster, and 0 is the fastest
     n = number_of_nodes
     # We need a n by n matrix
